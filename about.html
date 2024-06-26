@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/tailwind.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>  
+</head>
+<body class="font-merriweather">
+
+
+    <nav x-data="{ isOpen: false }" class="relative bg-white sm:m-8 ">
+        <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div class="flex items-center justify-between">
+                <a href="index.html">
+                    <img class="w-auto h-16 sm:h-24" src="images/logo_full.png" alt="">
+                </a>
+    
+                <!-- Mobile menu button -->
+                <div class="flex lg:hidden">
+                    <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500  hover:text-gray-600  focus:outline-none focus:text-gray-600 " aria-label="toggle menu">
+                        <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                        </svg>
+                
+                        <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white  md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
+                <div class="flex flex-col md:flex-row md:mx-6">
+                    <a href="index.html" class="group my-2 font-semibold text-md md:text-lg text-gray-700 md:mx-4 md:my-0 flex items-center hover:text-blue-500" >
+                        <span class="flex-shrink-0">
+                            <svg class="w-[30px] h-[30px] text-gray-800 group-hover:text-blue-500 transition-colors duration-300 transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5"/>
+                            </svg>
+                        </span>
+                        <span class="ml-1 group-hover:text-blue-500 transition-colors duration-300 transform">Home</span>
+                    </a>
+
+                    <a href="about.html" class="group my-2 font-semibold text-md md:text-lg text-gray-700 md:mx-4 md:my-0 flex items-center hover:text-blue-500" >
+                        <span class="flex-shrink-0">
+                            <svg class="w-[30px] h-[30px] text-gray-800  group-hover:text-blue-500 transition-colors duration-300 transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                              </svg>
+                              
+                        </span>
+                        <span class="ml-1 group-hover:text-blue-500 transition-colors duration-300 transform">About Us</span>
+                    </a>
+                    
+                    
+
+                    <div x-data="{ isOpen: false }" class="relative inline-block">
+                        <!-- Dropdown toggle button -->
+                        
+                        <button @click="isOpen = !isOpen" class="relative my-2 md:my-0 md:ml-2 md:mt-0 md:mr-2 z-10 block text-gray-700 bg-white rounded-md group hover:text-blue-500">
+                            <div class="flex items-center">
+                                <span class="flex-shrink-0">
+                                    <svg class="w-[25px] h-[25px] text-gray-800 group-hover:text-blue-500 transition-colors duration-300 transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd" d="M9.586 2.586A2 2 0 0 1 11 2h2a2 2 0 0 1 2 2v.089l.473.196.063-.063a2.002 2.002 0 0 1 2.828 0l1.414 1.414a2 2 0 0 1 0 2.827l-.063.064.196.473H20a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.089l-.196.473.063.063a2.002 2.002 0 0 1 0 2.828l-1.414 1.414a2 2 0 0 1-2.828 0l-.063-.063-.473.196V20a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-.089l-.473-.196-.063.063a2.002 2.002 0 0 1-2.828 0l-1.414-1.414a2 2 0 0 1 0-2.827l.063-.064L4.089 15H4a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h.09l.195-.473-.063-.063a2 2 0 0 1 0-2.828l1.414-1.414a2 2 0 0 1 2.827 0l.064.063L9 4.089V4a2 2 0 0 1 .586-1.414ZM8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" clip-rule="evenodd"/>
+                                    </svg>
+                                </span>
+                                <span class="ml-1 font-semibold text-md md:text-lg group-hover:text-blue-500 transition duration-300">Services</span>
+                                <span class="justify-end">
+                                    <svg class="w-5 h-5 mt-1 mx-1 text-gray-800 group-hover:text-blue-500 transition duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </button>
+                        
+                    
+                        <!-- Dropdown menu -->
+                        <div x-show="isOpen" 
+                            @click.away="isOpen = false"
+                            x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="opacity-0 scale-90"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-100"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-90" 
+                            class="absolute left-0 z-20 w-48 py-2 mt-2 origin-top-right bg-white rounded-md shadow-xl"
+                        >
+                            <a href="digital.html" class="block px-4 py-3 text-sm md:text-md  text-gray-600 capitalize transition-colors hover:bg-sky-600 hover:text-white duration-300 transform">Hotel Booking</a>
+                            <a href="promotional.html" class="block px-4 py-3 text-sm md:text-md  text-gray-600 capitalize transition-colors hover:bg-sky-600 hover:text-white duration-300 transform">Ticket Booking</a>
+                            <a href="shields.html" class="block px-4 py-3 text-sm md:text-md  text-gray-600 capitalize transition-colors hover:bg-sky-600 hover:text-white duration-300 transform">Visa</a>
+                            <a href="siange.html" class="block px-4 py-3 text-sm md:text-md  text-gray-600 capitalize transition-colors hover:bg-sky-600 hover:text-white duration-300 transform">Cruise</a>
+                            <a href="stationary.html" class="block px-4 py-3 text-sm md:text-md  text-gray-600 capitalize transition-colors hover:bg-sky-600 hover:text-white duration-300 transform">Train Booking</a>
+                            <a href="stationary.html" class="block px-4 py-3 text-sm md:text-md  text-gray-600 capitalize transition-colors hover:bg-sky-600 hover:text-white duration-300 transform">Meet & Assist</a>
+
+                        </div>
+                    </div>
+                    
+                    
+
+
+                    <a href="#" class="group my-2 font-semibold text-md md:text-lg text-gray-700 md:mx-4 md:my-0 flex items-center hover:text-blue-500" >
+                        <span class="flex-shrink-0">
+                            <svg class="w-[30px] h-[30px] text-gray-800  group-hover:text-blue-500 transition-colors duration-300 transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M11 9a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"/>
+                                <path fill-rule="evenodd" d="M9.896 3.051a2.681 2.681 0 0 1 4.208 0c.147.186.38.282.615.255a2.681 2.681 0 0 1 2.976 2.975.681.681 0 0 0 .254.615 2.681 2.681 0 0 1 0 4.208.682.682 0 0 0-.254.615 2.681 2.681 0 0 1-2.976 2.976.681.681 0 0 0-.615.254 2.682 2.682 0 0 1-4.208 0 .681.681 0 0 0-.614-.255 2.681 2.681 0 0 1-2.976-2.975.681.681 0 0 0-.255-.615 2.681 2.681 0 0 1 0-4.208.681.681 0 0 0 .255-.615 2.681 2.681 0 0 1 2.976-2.975.681.681 0 0 0 .614-.255ZM12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" clip-rule="evenodd"/>
+                                <path d="M5.395 15.055 4.07 19a1 1 0 0 0 1.264 1.267l1.95-.65 1.144 1.707A1 1 0 0 0 10.2 21.1l1.12-3.18a4.641 4.641 0 0 1-2.515-1.208 4.667 4.667 0 0 1-3.411-1.656Zm7.269 2.867 1.12 3.177a1 1 0 0 0 1.773.224l1.144-1.707 1.95.65A1 1 0 0 0 19.915 19l-1.32-3.93a4.667 4.667 0 0 1-3.4 1.642 4.643 4.643 0 0 1-2.53 1.21Z"/>
+                              </svg>
+                              
+                        </span>
+                        <span class="ml-1 group-hover:text-blue-500 transition-colors duration-300 transform">Packages</span>
+                    </a>
+
+
+
+
+                    
+                    <a href="#" class="group my-2 font-semibold text-md md:text-lg text-gray-700 md:mx-4 md:my-0 flex items-center hover:text-blue-500" >
+                        <span class="flex-shrink-0">
+                            <svg class="w-[30px] h-[30px] text-gray-800  group-hover:text-blue-500 transition-colors duration-300 transform" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.427 14.768 17.2 13.542a1.733 1.733 0 0 0-2.45 0l-.613.613a1.732 1.732 0 0 1-2.45 0l-1.838-1.84a1.735 1.735 0 0 1 0-2.452l.612-.613a1.735 1.735 0 0 0 0-2.452L9.237 5.572a1.6 1.6 0 0 0-2.45 0c-3.223 3.2-1.702 6.896 1.519 10.117 3.22 3.221 6.914 4.745 10.12 1.535a1.601 1.601 0 0 0 0-2.456Z"/>
+                            </svg>
+                              
+                        </span>
+                        <span class="ml-1 group-hover:text-blue-500 transition-colors duration-300 transform">Contact Us</span>
+                    </a>
+                    
+                
+                    </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="bg-white ">
+        <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+            <div class="relative bg-cover bg-center bg-no-repeat font-light text-gray-500 sm:text-lg" style="background-image: url('images/about_bg.png');">
+                <div class="">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">About Us</h2>
+                    <p class="mb-4 text-black">Welcome to Sublime Adventures, your gateway to extraordinary travel experiences! As an emerging leader in the travel industry, we are dedicated to crafting unforgettable journeys that inspire and rejuvenate. Whether you're seeking thrilling adventures, serene escapes, or cultural immersions, our meticulously curated itineraries cater to every kind of traveler.</p>
+                    <p class="text-black">At Sublime Adventures, we believe in the transformative power of travel. Our mission is to provide personalized and seamless travel experiences that exceed expectations. Our team of passionate travel experts works tirelessly to ensure every detail of your trip is thoughtfully planned, allowing you to focus on creating lasting memories.</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-2 mt-8 md:mt-4">
+                <img class="w-full rounded-lg transition transform hover:scale-110 md:hover:scale-125 hover:shadow-lg shadow-lg" src="images/about-1.jpg" alt="office content 1">
+                <img class="mt-12 w-full md:-ml-10 md:mt-20 rounded-lg transition transform hover:scale-110 md:hover:scale-125 hover:shadow-lg shadow-lg" src="images/about-2.jpg" alt="office content 2">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white ">
+        <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+            
+            <div class="grid md:grid-cols-2 gap-2 mt-8 md:mt-4">
+                <img class="w-full hidden md:block rounded-lg transition transform hover:scale-110 md:hover:scale-125 hover:shadow-lg shadow-lg" src="images/about-4.jpg" alt="office content 1">
+                <img class="mt-12 hidden md:block w-full md:-ml-10 md:mt-10 rounded-lg transition transform hover:scale-110 md:hover:scale-110 hover:shadow-lg shadow-lg" src="images/about-3.jpg" alt="office content 2">
+            </div>
+
+            <div class="relative bg-cover bg-center -px-8 bg-no-repeat font-light text-gray-500 sm:text-lg" style="background-image: url('images/about_bg.png');">
+                <div class="">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Why Sublime Advetures?</h2>
+                    <p class="mb-4 text-black">At Sublime Adventures, we prioritize personalized service to ensure every journey is uniquely tailored to your preferences. Our dedicated team of travel experts takes the time to understand your desires and craft itineraries that reflect your individual tastes. Whether you're seeking a tranquil retreat or an adrenaline-pumping adventure, we curate experiences that align with your vision.</p>
+                    <p class="text-black">Our commitment to expert knowledge and sustainable travel sets us apart. With our in-depth local insights, we offer authentic experiences that go beyond the typical tourist path. We handle all logistics, providing a seamless and stress-free travel experience, while also promoting responsible and eco-friendly practices that benefit the communities and environments we visit. Discover the sublime with us and embark on a journey that leaves a lasting impression.</p>
+
+                </div>
+
+                <img class="w-full block md:hidden mt-4 rounded-lg  shadow-lg" src="images/about-4.jpg" alt="office content 1">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white ">
+        <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+            <div class="relative bg-cover bg-center bg-no-repeat font-light text-gray-500 sm:text-lg" style="background-image: url('images/about_bg.png');">
+                <div class="">
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">Message From Chairman</h2>
+                    <p class="mb-4 text-black">"Since 1963, Sublime Travels has been the perfect choice for anyone looking to explore the globe, both locally and internationally. After the challenges of the recent pandemic, we are excited to announce that we are finally returning to normal operations. During this period, we have taken the opportunity to enhance our infrastructure significantly.</p>
+                    <p class="mb-4 text-black">Our new team of expert travel consultants is ready and eager to meet all your travel needs. In addition to strengthening our team, we have relocated to a new office to provide even better service to our valued clients. Year after year, we continue to improve the travel and tourism sector by embracing cutting-edge technologies and innovative solutions, making your travel experience seamless and enjoyable.</p>
+                    <p class="text-black">With established offices in Karachi, Lahore, and Islamabad, we are always just a call away."</p>
+
+                </div>
+            </div>
+            
+            <div class=" flex justify-center">
+                <img class="mt-8  rounded-lg" src="images/leader.jpg" alt="">
+                <!-- <img class="mt-12 w-full md:-ml-10 md:mt-20 rounded-lg transition transform hover:scale-110 md:hover:scale-125 hover:shadow-lg shadow-lg" src="images/about-2.jpg" alt="office content 2"> -->
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-white ">
+        <div class="relative bg-cover bg-center bg-no-repeat font-light text-gray-500 sm:text-lg" style="background-image: url('images/about_bg.png');">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 ">
+            <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 ">Our Team</h2>
+                <p class="font-light text-gray-500 lg:mb-16 sm:text-xl ">Meet the Experts Who Make Your Journey Memorable.</p>
+            </div> 
+            <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+                <div class="items-center bg-gray-50 rounded-lg shadow sm:flex ">
+                    <a href="#">
+                        <img class="w-80 mx-auto rounded-lg sm:rounded-none sm:rounded-l-lg" src="images/raza.jpeg" alt="Bonnie Avatar">
+                    </a>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold tracking-tight text-gray-900 ">
+                            <a href="#">Ahmad Raza</a>
+                        </h3>
+                        <span class="text-gray-500 ">Chief Executive Officer</span>
+                        <p class="mt-3 mb-4 font-light text-gray-500 ">Guiding the company with visionary leadership and strategic foresight.</p>
+                        
+                    </div>
+                </div> 
+                <div class="items-center bg-gray-50 rounded-lg shadow sm:flex ">
+                    <a href="#">
+                        <img class="w-80 mx-auto rounded-lg sm:rounded-none sm:rounded-l-lg" src="images/hanan.jpeg" alt="Bonnie Avatar">
+                    </a>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold tracking-tight text-gray-900 ">
+                            <a href="#">Hannan Sani</a>
+                        </h3>
+                        <span class="text-gray-500 ">Vice President</span>
+                        <p class="mt-3 mb-4 font-light text-gray-500 ">Driving departmental excellence and growth through strategic leadership</p>
+                        
+                    </div>
+                </div>  
+                <div class="items-center bg-gray-50 rounded-lg shadow sm:flex ">
+                    <a href="#">
+                        <img class="w-80 mx-auto rounded-lg sm:rounded-none sm:rounded-l-lg" src="images/blank-profile-picture-973460_960_720.webp" alt="Bonnie Avatar">
+                    </a>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold tracking-tight text-gray-900 ">
+                            <a href="#">Sidra Jamil</a>
+                        </h3>
+                        <span class="text-gray-500 ">Operations Manager</span>
+                        <p class="mt-3 mb-4 font-light text-gray-500 ">Optimizing processes and resources for seamless operational efficiency.</p>
+                        
+                    </div>
+                </div>  
+                <div class="items-center bg-gray-50 rounded-lg shadow sm:flex ">
+                    <a href="#">
+                        <img class="w-80 mx-auto rounded-lg sm:rounded-none sm:rounded-l-lg" src="images/ali.jpeg" alt="Bonnie Avatar">
+                    </a>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold tracking-tight text-gray-900 ">
+                            <a href="#">Ali Hassan</a>
+                        </h3>
+                        <span class="text-gray-500 ">Customer Service Manager</span>
+                        <p class="mt-3 mb-4 font-light text-gray-500 ">Ensuring exceptional customer experiences through dedicated service and support.</p>
+                        
+                    </div>
+                </div>  
+                </div>
+            </div>  
+        </div>
+      </section>
+
+      <footer class="bg-white ">
+        <div class="container px-6 py-8 mx-auto">
+           
+    
+            <hr class="my-6 border-gray-200 md:my-10 " />
+    
+            <div class="flex flex-col items-center sm:flex-row sm:justify-between">
+                <a href="index.html">
+                    <img class="w-auto h-20" src="images/logo_full.png" alt="">
+                </a>
+    
+                <div class="flex -mx-2">
+                    <p class="text-sm text-gray-500 ">© Copyright 2021. All Rights Reserved.</p>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+
+
+</body>
+</html>
