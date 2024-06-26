@@ -9,13 +9,13 @@ module.exports = {
 
 }
 
-module.exports = {
-  theme: {
-    extend: {
-      fontFamily: {
-        merriweather: ['Merriweather Sans', 'sans-serif'],
-      },
-    },
-  },
-  plugins: [],
-}
+// module.exports = {
+//   theme: {
+//     extend: {
+//       fontFamily: {
+//         merriweather: ['Merriweather Sans', 'sans-serif'],
+//       },
+//     },
+//   },
+//   plugins: [],
+// }
